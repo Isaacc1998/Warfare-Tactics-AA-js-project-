@@ -1,15 +1,15 @@
-// const Game = require('./game');
-// const Board = require('./board');
-// const Unit = require('./unit');
-// const Player = require('./player');
-
+const Game = require('./game');
+const Board = require('./board');
+const Unit = require('./unit');
+const Player = require('./player');
 const levels = require("./levels");
 
-
-
-// const Levels = require('./levels');
-console.log("test");
 document.addEventListener('DOMContentLoaded', () => {
+    let newGame = new Game(1);
     console.log("testing");
-    levels
+document.addEventListener("keydown", newGame.board.moveunit);
+
+    
 })  
+
+

@@ -13,6 +13,10 @@ class Unit {
         //clip
     }
 
+    setAlive(status) {
+        this.alive = status;
+    }
+
     setPiece(pos) {
         this.pos = pos;
     }
@@ -26,12 +30,15 @@ class Unit {
     }
 
     isAlive() {
-        health === 0 ? this.alive = false : this.alive = true;
+        this.health === 0 ? this.alive = false : this.alive = true;
         return this.alive;
     }
 
     takeDamage(dmg) {
         this.health = this.health - (dmg - this.defense);
+        if (!this.isAlive) {
+            this.alive = false;
+        }
     }
 }
 

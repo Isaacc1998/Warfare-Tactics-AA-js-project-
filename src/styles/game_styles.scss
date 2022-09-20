@@ -1,0 +1,34 @@
+#battlefield {  
+    position: relative; 
+    width: 680px;
+    height: 680px;
+    background-color: rgb(153, 91, 91);
+    border-color: black;
+}
+
+#status {
+    position: relative;
+    width: 320px;
+    height: 350px;
+    top: 142px;
+    left: 1064px;
+    border-style: solid;
+    background-color: rgb(164, 154, 154);
+}
+
+#moveOption {
+    position: relative;
+    width: 320px;
+    height: 266px;
+    top: 408px;
+    left: 741px;
+    border-style: solid;
+    background-color: rgb(164, 154, 154);
+}
+
+:export {
+    battlefield: battlefield;
+    status: status;
+    moveOption: moveOption;
+}
+
