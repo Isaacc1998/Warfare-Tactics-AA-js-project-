@@ -16,8 +16,8 @@ class Board {
         // this.battlefield.id = "battlefield";
         // this.battlefieldContext = this.battlefield.getContext('2d');
         //this.battlefield = this.draw("battlefield");
-        this.statusScreen = this.draw("status");
-        this.moveScreen = this.draw("moveOption");
+        // this.statusScreen = this.draw("status");
+        // this.moveScreen = this.draw("moveOption");
         //this.drawGrid();
         //this.squareSize = 67;
         this.battlefield = this.drawBattlefield(0, 0, "#444");
@@ -145,6 +145,21 @@ class Board {
 		}
 	}
 
+    renderOptions() {
+        let context = document.getElementById("");
+        let button1 = document.createElement("button");
+        let button2 = document.createElement("button");
+        let button3 = document.createElement("button");
+        let button4 = document.createElement("button");
+
+        button1.class = "move";
+        button2.class = "attack";
+        button3.class = "items";
+        button4.class = "defend";
+
+        button1.style.display = "block";
+    }
+
 
 
     draw(name) {
@@ -154,7 +169,10 @@ class Board {
         let h = canvas.height;
         let context = canvas.getContext("2d");
         document.body.appendChild(canvas);
-
+        //canvas.style.display = "none";
+        if (name === "moveOptions") {
+            this.renderOptions();
+        }
         return this.context;
     }
 
@@ -318,11 +336,7 @@ class Board {
         
     }
 
-    renderOptions() {
-        let canvas = document.getElementById("moveOption");
-        canvas.innerHTML();
-        
-    }
+    
 
     createBoard() {
 

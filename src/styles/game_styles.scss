@@ -1,4 +1,11 @@
+#container {
+    display: block;  
+    margin-left:auto;
+    margin-right:auto;
+    width:960px;
+}
 #battlefield {  
+   
     position: relative; 
     width: 680px;
     height: 680px;
@@ -10,8 +17,8 @@
     position: relative;
     width: 320px;
     height: 350px;
-    top: 142px;
-    left: 1064px;
+    // top: 142px;
+    // left: 800px;
     border-style: solid;
     background-color: rgb(164, 154, 154);
 }
@@ -19,12 +26,42 @@
 #moveOption {
     position: relative;
     width: 320px;
-    height: 266px;
-    top: 408px;
-    left: 741px;
+    height: 260px;
+    // top: 761px;
+    // left: 700px;
     border-style: solid;
     background-color: rgb(164, 154, 154);
 }
+
+
+
+#move {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+#attack {
+    position: relative;
+}
+
+#items {
+    position: relative;
+}
+
+#defend {
+    position: relative;
+}
+
+#endTurn {
+    position: relative;
+    border-style: solid;
+    width: 320px;
+    height: 90px;
+    background-color: rgb(164, 154, 154);   
+}
+
+
 
 :export {
     battlefield: battlefield;

@@ -7,9 +7,13 @@ const levels = require("./levels");
 document.addEventListener('DOMContentLoaded', () => {
     let newGame = new Game(1);
     console.log("testing");
-document.addEventListener("keydown", newGame.board.moveunit);
-
-    
+    document.addEventListener("keydown", newGame.board.moveunit);    
 })  
+
+module.exports = {
+    function () {
+        
+    }
+}
 
 

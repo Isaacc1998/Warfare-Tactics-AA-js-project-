@@ -1,6 +1,13 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
+#container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+}
+
 #battlefield {
   position: relative;
   width: 680px;
@@ -13,8 +20,6 @@
   position: relative;
   width: 320px;
   height: 350px;
-  top: 142px;
-  left: 1064px;
   border-style: solid;
   background-color: rgb(164, 154, 154);
 }
@@ -22,10 +27,34 @@
 #moveOption {
   position: relative;
   width: 320px;
-  height: 266px;
-  top: 408px;
-  left: 741px;
+  height: 260px;
   border-style: solid;
+  background-color: rgb(164, 154, 154);
+}
+
+#move {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+#attack {
+  position: relative;
+}
+
+#items {
+  position: relative;
+}
+
+#defend {
+  position: relative;
+}
+
+#endTurn {
+  position: relative;
+  border-style: solid;
+  width: 320px;
+  height: 90px;
   background-color: rgb(164, 154, 154);
 }
 

@@ -15,11 +15,29 @@
     </style> -->
     <title>Project Name</title>
   </head>
+  
+    <!-- <canvas id="moveOption">
+      <button type="button" class="move">Move</button>
+      <button type="button" class="attack">Attack</button>
+      <button type="button" class="items">Item</button>
+      <button type="button" class="defend">Defend</button>
+    </canvas> -->
   <body>
-    <div style="text-align:center">
-      <!-- <canvas id="battlefield" class="battlefield"></canvas>
-      <canvas id="status" class="status"></canvas>
-      <canvas id="moveOption" class="moveOption"></canvas> -->
+  <div id="container">
+    <div id="status" style="text-align:center">
+      <h3>Status</h3>
     </div>
+    <div id="moveOption" style="text-align:center">
+      <button id="move" type="button">Move</button>
+      <button id="attack" type="button">Attack</button>
+      <button id="items" type="button">Items</button>
+      <button id="defend" type="button">Defend</button>
+      <div id="moveCounter">Moves Left:</div>
+      <script src="./src/scripts/moveCounter.js"></script>
+    </div>
+    
+
+    <div id="endTurn">End Turn</div>
+  </div>
   </body>
 </html>
