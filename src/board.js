@@ -9,7 +9,16 @@ class Board {
         //this.objectGrid = this.createObjectGrid();
         this.units = playerUnits;
         this.enemies = enemyUnits;
+        this.characterKey = {};
+        this.enemyNames = [];
+        for (let i = 0; i < this.enemies.length; i++) {
+            this.enemyNames.push(this.enemies[i].name);
+        }
         this.unitOrder = this.setTurnOrder();
+        for (let i = 0; i < this.unitOrder.length; i++) {
+            this.characterKey[this.unitOrder[i].name] = this.unitOrder[i];
+        }
+        console.log(this.characterKey);
         this.currentTurn = 0;
         this.unitTurn = this.unitOrder[this.currentTurn % this.unitOrder.length];
         this.unitGrid = new Array(10); 
@@ -21,33 +30,91 @@ class Board {
                 this.unitGrid[i][j] = 0;
             }
         }
-
-        // this.battlefield = document.createElement("canvas");
-        // this.battlefield.id = "battlefield";
-        // this.battlefieldContext = this.battlefield.getContext('2d');
-        //this.battlefield = this.draw("battlefield");
-        // this.statusScreen = this.draw("status");
-        // this.moveScreen = this.draw("moveOption");
-        //this.drawGrid();
-        //this.squareSize = 67;
-        
         this.battlefield = this.drawBattlefield(0, 0, "#444");
 		this.cellSize = 67;
 		this.padding = 2;
         this.setPos();
-        // this.unitX = 1;
-        // this.unitY = 1;
-		//this.unit = { x: this.unitX, y: this.unitY};
-		//this.unitGrid[this.unitTurn.pos[0]][this.unitTurn.pos[1]] = this.unitTurn;
         this.tiles = [];
         this.fillTiles();
         this.unitImages = [];
         this.generateUnitImages();
         //this.unitContexts = this.createUnitCanvas();
-
         this.generateHTMLsquares();  
         this.generateHTMLunits();
+        this.currentMoveCount = this.unitTurn.move;
 
+    }
+
+    setCurrentMoveCount() {
+        this.currentMoveCount = this.unitTurn.move;
+    }
+
+    attack(target) {
+       let attackedUnit = this.characterKey[target];
+        if (this.inRange(attackedUnit)) {
+            console.log("before damge");
+            attackedUnit.takeDamage(this.unitTurn.attack);
+            if (!attackedUnit.isAlive()) {
+                this.removeUnit(attackedUnit);
+            }
+        }
+    }
+
+    inRange(target) {
+        let range = this.unitTurn.range;
+        console.log(target);
+        console.log(this.unitTurn);
+        let xDif = target.pos[0] - this.unitTurn.pos[0];
+        let yDif = target.pos[1] - this.unitTurn.pos[1];
+        while (xDif !== 0) {
+            if (xDif > 0) {
+                xDif--;
+                range--;
+            } else if (xDif < 0) {
+                xDif++;
+                range--;
+            }
+        }
+
+        while (yDif !== 0) {
+            if (yDif > 0) {
+                yDif--;
+                range--;
+            } else if (yDif < 0) {
+                yDif++;
+                range--;
+            }
+        }
+        if (range < 0) {
+            return false
+        }
+        return true;
+    }
+
+    findClickedUnit(name) {
+        console.log(name);
+        for (let i = 0; i < this.unitOrder.length; i++) {
+            if (this.unitOrder[i].name === name) {
+                let alliance;
+                let type;
+                if (this.unitOrder[i].owner === null) {
+                    alliance = "Player 2"
+                } else {
+                    alliance = "Player 1"
+                }
+                if (this.unitOrder[i].type === "atGunner") {
+                    type = "RPG"
+                } else {
+                    type = this.unitOrder[i].type;   
+                }
+                return [this.unitOrder[i].health, 
+                        this.unitOrder[i].attack, 
+                        this.unitOrder[i].defense,
+                        this.unitOrder[i].name,
+                        type,
+                        alliance]
+            }
+        }
     }
 
     savePositions() {
@@ -120,27 +187,48 @@ class Board {
 			if (this.isValidMove(-1, 0)) {
 			 this.updateGrid(this.unitTurn.pos[0], this.unitTurn.pos[1], 0);
 			 this.updateGrid(this.unitTurn.pos[0], this.unitTurn.pos[1] - 1, this.unitTurn);
-			 this.unitTurn.pos[1] --;	 
+			 this.unitTurn.pos[1] --;	
+             this.currentMoveCount--; 
 		 }
 		} else if (keyCode === 39) {
 			if (this.isValidMove(1, 0)) {
 				this.updateGrid(this.unitTurn.pos[0], this.unitTurn.pos[1], 0);
  			 	this.updateGrid(this.unitTurn.pos[0], this.unitTurn.pos[1] + 1, this.unitTurn);
 				this.unitTurn.pos[1] ++;
+                this.currentMoveCount--; 
+
 			}
 		} else if (keyCode === 38) {
 			if (this.isValidMove(0, -1)) {
 				this.updateGrid(this.unitTurn.pos[0], this.unitTurn.pos[1], 0);
  			 	this.updateGrid(this.unitTurn.pos[0] - 1, this.unitTurn.pos[1], this.unitTurn);
 				this.unitTurn.pos[0] --;
+                this.currentMoveCount--; 
+
 			}
 		} else if (keyCode === 40) {
 			if (this.isValidMove(0, 1)) {
 				this.updateGrid(this.unitTurn.pos[0], this.unitTurn.pos[1], 0);
  			 	this.updateGrid(this.unitTurn.pos[0] + 1, this.unitTurn.pos[1], this.unitTurn);
 				this.unitTurn.pos[0] ++;
+                this.currentMoveCount--; 
 			}
 		}
+        if (this.currentMoveCount === 0) {
+            document.removeEventListener("keydown", this.moveunit);
+            let counter = document.getElementById("moveCounter");
+            counter.style.display = "none";
+            //add moveOptions
+            let moveOptions = document.getElementsByClassName("moveB");
+            for (let i = 0; i < moveOptions.length; i++) {
+                moveOptions[i].style.display = "block";
+            }
+            move.style.display = "none";
+            return;
+        }
+        let counter = document.getElementById("moveCounter");
+        counter.textContent = `Moves Left: ${this.currentMoveCount}`
+        
 	}
 
 	getCenter(w, h) {
@@ -388,10 +476,6 @@ class Board {
         }
     }
 
-    playerAction() {
-        
-    }
-
     enemyAction() {
         //ai functionality
         //has to click end turn button
@@ -406,16 +490,17 @@ class Board {
         count.textContent = this.currentTurn + 1;
         //have to update unit turn, because constructor only called once 
         this.unitTurn = this.unitOrder[this.currentTurn % this.unitOrder.length];
-        name.textContent = `Name: ${this.unitTurn.name}`; 
+        name.textContent = `${this.unitTurn.name}`; 
 
 
         if (this.unitTurn.type === null) {
             this.enemyAction();
         }
+        this.gameEnd();
     }
 
     gameEnd() {
-        if (this.currentTurn === 9) {
+        if (this.currentTurn === 50) {
             console.log("You lose!")
             return true;
         }
@@ -431,34 +516,46 @@ class Board {
     }
 
     removeUnit(unit) {
-        index = this.unitOrder.indexOf(unit);
+        let index = this.unitOrder.indexOf(unit);
         if (index > -1) {
-            array.splice(index, 1);
+            this.unitOrder.splice(index, 1);
         }
         let x = unit.pos[0];
         let y = unit.pos[1];
-        this.grid[x][y] = 0;
-
-        if (unit.type === null) {
-            array.splice(this.enemies.indexOf(unit), 1);
+        this.unitGrid[x][y] = 0;
+        if (unit.owner === null) {
+            this.enemies.splice(this.enemies.indexOf(unit), 1);
         } else {
-            array.splice(this.units.indexOf(unit), 1);
+            this.units.splice(this.units.indexOf(unit), 1);
+        }
+
+        let deadUnit = document.getElementById(unit.name);
+        deadUnit.remove();
+        this.gameEnd();
+        this.savePositions();
+        this.nextTurn();
+        this.setCurrentMoveCount();
+        let move = document.getElementById("move");
+        move.style.display = "block";
+        let moveOptions = document.getElementsByClassName("moveB");
+        for (let i = 0; i < moveOptions.length; i++) {
+            moveOptions[i].style.display = "block";
         }
     }
 
-    attack(pos) {
-        let x = pos[0];
-        let y = pos[1];
+    // attack(pos) {
+    //     let x = pos[0];
+    //     let y = pos[1];
 
-        if (this.grid[x][y] instanceof Unit && this.grid[x][y].type === null) {
-            this.grid[x][y].takeDamage(this.unitTurn.attack);
-            if (this.grid[x][y].alive === false) {
-                this.removeUnit(this.grid[x][y]);
-            }
-            return true;
-        }
-        return false;
-    }
+    //     if (this.grid[x][y] instanceof Unit && this.grid[x][y].type === null) {
+    //         this.grid[x][y].takeDamage(this.unitTurn.attack);
+    //         if (this.grid[x][y].alive === false) {
+    //             this.removeUnit(this.grid[x][y]);
+    //         }
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
     moveUnit(pos) {
         let x = pos[0];
@@ -536,12 +633,6 @@ class Board {
 
     renderStatus() {
         
-    }
-
-    
-
-    createBoard() {
-
     }
 
     // createObjectGrid() {

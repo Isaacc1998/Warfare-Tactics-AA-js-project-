@@ -30,13 +30,16 @@ class Unit {
     }
 
     isAlive() {
-        this.health === 0 ? this.alive = false : this.alive = true;
         return this.alive;
     }
 
     takeDamage(dmg) {
+        console.log("damage");
         this.health = this.health - (dmg - this.defense);
-        if (!this.isAlive) {
+        if (this.health < 0) {
+            this.health = 0;
+        }
+        if (this.health === 0) {
             this.alive = false;
         }
     }
