@@ -2,7 +2,7 @@
 
 
 Instructions:
--Warfare Tactics is a singleplayer/two player turn based strategy game that takes place on a 2D grid system.
+-Warfare Tactics is a singleplayer/ two player turn based strategy game that takes place on a 2D grid system.
 -Each player is given a set of playable units with which they must use to move and attack the enemy player's units in a turn based fashion.
 -The player that eliminates the opposing side's units first, wins the game.
 
