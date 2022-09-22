@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <link rel="stylesheet" href="./dist/main.css" />
-    <script src="./dist/main.js"></script>
 
     <!-- <style type="text/css">
       #battlefield {
@@ -23,21 +22,41 @@
       <button type="button" class="defend">Defend</button>
     </canvas> -->
   <body>
+  <div class="background">
   <div id="container">
+    <div id="squares"></div>
+    <div id="sub">
     <div id="status" style="text-align:center">
+      <div id="turnCount">
+        Turn: <span class="tCount">1</span> 
+      </div>
+      <div id="displayName">
+        <span class="name">Name: Bob</span>
+      </div>
       <h3>Status</h3>
     </div>
     <div id="moveOption" style="text-align:center">
-      <button id="move" type="button">Move</button>
-      <button id="attack" type="button">Attack</button>
-      <button id="items" type="button">Items</button>
-      <button id="defend" type="button">Defend</button>
+      <div id="left" class="left">
+        <button id="move" type="button">Move</button>
+        <button id="attack" type="button">Attack</button>
+      </div>
+      <div id="right" class="right">
+        <button id="items" type="button">Items</button>
+        <button id="defend" type="button">Defend</button>
+      </div>
       <div id="moveCounter">Moves Left:</div>
-      <script src="./src/scripts/moveCounter.js"></script>
+      <script>
+        let element = document.getElementById("moveCounter");
+        element.style.display = "none";
+      </script>
     </div>
-    
-
-    <div id="endTurn">End Turn</div>
+    <div id="endTurn">
+      <button id="end">End Turn</button>
+    </div>
+    </div>
+  </div>
   </div>
   </body>
+  <script src="./dist/main.js"></script>
+
 </html>
