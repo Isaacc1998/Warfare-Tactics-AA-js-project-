@@ -4,6 +4,7 @@ const Levels = require('./levels');
 let count = document.querySelector(".tCount");
 let name = document.querySelector(".name");
 class Board {
+    //edit
     constructor (grid, playerUnits, enemyUnits) {
         this.grid = grid;
         //this.objectGrid = this.createObjectGrid();
