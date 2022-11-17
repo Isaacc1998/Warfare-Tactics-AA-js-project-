@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <link rel="stylesheet" href="./dist/main.css" />
 
     <!-- <style type="text/css">
@@ -14,66 +14,64 @@
     </style> -->
     <title></title>
   </head>
-  
-    <!-- <canvas id="moveOption">
+
+  <!-- <canvas id="moveOption">
       <button type="button" class="move">Move</button>
       <button type="button" class="attack">Attack</button>
       <button type="button" class="items">Item</button>
       <button type="button" class="defend">Defend</button>
     </canvas> -->
   <body>
-  <div class="background">
-  <div class="title">
-    <h1 id="title">Warfare Tactics</h1>
-  </div>
-
-  <div id="container">
-    <div id="squares"></div>
-    <div id="sub">
-
-    <div id="status" style="text-align:center">
-      <div id="turnCount">
-        Turn: <span class="tCount">1</span> 
+    <div class="background">
+      <div class="title">
+        <h1 id="title">Warfare Tactics</h1>
       </div>
 
-      <div id="displayName">
-        <span class="name">Bob</span>
+      <div id="container">
+        <div id="squares"></div>
+        <div id="sub">
+          <div id="status" style="text-align: center">
+            <div id="turnCount">Turn: <span class="tCount">1</span></div>
+
+            <div id="displayName">
+              <span class="name">Bob</span>
+            </div>
+
+            <h3>Status</h3>
+
+            <div id="unitInfo"></div>
+            <script>
+              // document.getElementById("unitInfo").innerHTML = clickedUnit.hp
+              // let element6 = document.getElementById("unitInfo");
+              // element6.style.display = "none";
+            </script>
+            <br />
+          </div>
+
+          <div id="moveOption" style="text-align: center">
+            <div id="left" class="moveB">
+              <button id="move" type="button">Move</button>
+              <button id="attack" type="button">Attack</button>
+            </div>
+            <div id="right" class="moveB">
+              <button id="items" type="button">Items</button>
+              <button id="defend" type="button">Defend</button>
+            </div>
+            <div id="moveCounter"></div>
+            <div id="attackText">Select a unit to attack</div>
+            <div id="confirmAttack">
+              Attack this unit?
+              <button id="yesAttack">Yes</button>
+              <button id="noAttack">No</button>
+            </div>
+          </div>
+
+          <div id="endTurn">
+            <button id="end">End Turn</button>
+          </div>
+        </div>
       </div>
-
-      <h3>Status</h3>
-
-      <div id="unitInfo"></div>
-      <script>
-        // document.getElementById("unitInfo").innerHTML = clickedUnit.hp
-        // let element6 = document.getElementById("unitInfo");
-        // element6.style.display = "none";
-      </script><br>
     </div>
-
-    <div id="moveOption" style="text-align:center">
-      <div id="left" class="moveB">
-        <button id="move" type="button">Move</button>
-        <button id="attack" type="button">Attack</button>
-      </div>
-      <div id="right" class="moveB">
-        <button id="items" type="button">Items</button>
-        <button id="defend" type="button">Defend</button>
-      </div>
-      <div id="moveCounter"></div>
-      <div id="attackText">Select a unit to attack</div>
-      <div id="confirmAttack">Attack this unit?
-        <button id="yesAttack">Yes</button>
-        <button id="noAttack">No</button>
-      </div>
-    </div>
-
-    <div id="endTurn">
-      <button id="end">End Turn</button>
-    </div>
-
-    </div>
-  </div>
-  </div>
   </body>
   <script>
     let element1 = document.getElementById("moveCounter");
@@ -84,5 +82,4 @@
     element3.style.display = "none";
   </script>
   <script src="./dist/main.js"></script>
-
 </html>
