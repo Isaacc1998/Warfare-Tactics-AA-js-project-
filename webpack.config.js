@@ -37,7 +37,7 @@ module.exports = (env, argv) => {
   if (argv.mode === "production") {
     config.devtool = "source-map";
   } else {
-    config.devtool = "source-map";
+    config.devtool = "eval-source-map";
   }
 
   return config;
