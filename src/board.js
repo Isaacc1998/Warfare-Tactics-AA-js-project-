@@ -1,3 +1,6 @@
+import Grass from "../tiles/Tiles/_0003_GrassTiles.png";
+import Dirt from "../tiles/Tiles/_0001_DirtTiles.png";
+import Crate from "../tiles/crates/TDS04_0018_Box1.png";
 const Player = require("./player");
 const Unit = require("./unit");
 const Levels = require("./levels");
@@ -149,15 +152,18 @@ class Board {
 
   fillTiles() {
     let grass = new Image();
-    grass.src = "../tiles/Tiles/_0003_GrassTiles.png";
+    // grass.src = "../tiles/Tiles/_0003_GrassTiles.png";
+    grass.src = Grass;
     this.tiles.push(grass);
 
     let dirt = new Image();
-    dirt.src = "../tiles/Tiles/_0001_DirtTiles.png";
+    // dirt.src = "../tiles/Tiles/_0001_DirtTiles.png";
+    dirt.src = Dirt;
     this.tiles.push(dirt);
 
     let crate = new Image();
-    crate.src = "../tiles/crates/TDS04_0018_Box1.png";
+    // crate.src = "../tiles/crates/TDS04_0018_Box1.png";
+    crate.src = Crate;
     this.tiles.push(crate);
   }
 
