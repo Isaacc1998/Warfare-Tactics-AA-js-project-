@@ -1,162 +1,154 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    overflow: hidden; 
+  overflow: hidden;
 }
 h1 {
-    position: relative;
-    top: 50px;
-    font-size: 40px;
-    
-    // margin: 40vw !important;
-    // border: 1px solid black;
+  position: relative;
+  top: 50px;
+  font-size: 40px;
+
+  // margin: 40vw !important;
+  // border: 1px solid black;
 }
 #title {
-    display: flex;
-    justify-content: center;
-    border: 1px solid black;
-    background-color: gray;
-    
-
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  background-color: gray;
 }
 
 .background {
-    background-image: url(/images/camoBackground.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    width: 100%;
-    height: 100%;
+  //   background-image: url(/images/camoBackground.jpg);
+  background-image: url(/src/images/camoBackground.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  width: 100%;
+  height: 100%;
 }
 
 #container {
-    display: inline-block;     
-    position: relative;
-    margin-left:auto;
-    margin-right:auto;
-    width:660px;
+  display: inline-block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 660px;
 }
 
 #squares {
-    position: absolute;
-    width: 688px;
-    height: 619px;
-    top: 78px;
-    left: 369px;
-
+  position: absolute;
+  width: 688px;
+  height: 619px;
+  top: 78px;
+  left: 369px;
 }
 
 #sub {
-    display: block;
-    position:sticky;    
-    position: relative;
-    left: 1050px;
-    top: 77px;
+  display: block;
+  position: sticky;
+  position: relative;
+  left: 1050px;
+  top: 77px;
 }
 
-#battlefield {  
-   
-    position: relative; 
-    width: 680px;
-    height: 680px;
-    background-color: rgb(153, 91, 91);
-    border-color: black;
+#battlefield {
+  position: relative;
+  width: 680px;
+  height: 680px;
+  background-color: rgb(153, 91, 91);
+  border-color: black;
 }
 
 #status {
-    position: relative;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: lighter;
-    font-size: x-large;
-    width: 320px;
-    height: 360px;
-    // top: 142px;
-    // left: 800px;
-    border-style: solid;
-    background-color: rgb(164, 154, 154);
+  position: relative;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: lighter;
+  font-size: x-large;
+  width: 320px;
+  height: 360px;
+  // top: 142px;
+  // left: 800px;
+  border-style: solid;
+  background-color: rgb(164, 154, 154);
 }
 
 #moveOption {
-    display: flex;  
-    position: relative;
-    width: 320px;
-    height: 160px;
-    border-style: solid;
-    
-    background-color: rgb(164, 154, 154);
+  display: flex;
+  position: relative;
+  width: 320px;
+  height: 160px;
+  border-style: solid;
+
+  background-color: rgb(164, 154, 154);
 }
 
 #left {
-    display: block;
-    position: relative;
-    bottom: 1.5px;
+  display: block;
+  position: relative;
+  bottom: 1.5px;
 }
 
 #right {
-    display: block;
-    position: relative;
-    bottom: 1.5px;
+  display: block;
+  position: relative;
+  bottom: 1.5px;
 }
 
-
-
 #move {
-    position: relative;
-    width: 160px;
-    height: 82px;
-    background-color: rgb(83, 199, 241);
+  position: relative;
+  width: 160px;
+  height: 82px;
+  background-color: rgb(83, 199, 241);
 }
 
 #attack {
-    position: relative;
-    width: 160px;
-    height: 82px;
-    background-color: rgb(83, 199, 241);
+  position: relative;
+  width: 160px;
+  height: 82px;
+  background-color: rgb(83, 199, 241);
 }
 
 #items {
-    position: relative;
-    width: 160px;
-    height: 82px;
-    background-color: rgb(83, 199, 241);
+  position: relative;
+  width: 160px;
+  height: 82px;
+  background-color: rgb(83, 199, 241);
 }
 
 #defend {
-    position: relative;
-    width: 160px;
-    height: 82px;
-    background-color: rgb(83, 199, 241);
+  position: relative;
+  width: 160px;
+  height: 82px;
+  background-color: rgb(83, 199, 241);
 }
 
 #endTurn {
-    position: relative;
-    border-style: solid;
-    width: 320px;
-    height: 90px;
-    background-color: rgb(164, 154, 154);   
+  position: relative;
+  border-style: solid;
+  width: 320px;
+  height: 90px;
+  background-color: rgb(164, 154, 154);
 }
 
 #end {
-    position: relative;
-    width:321px;
-    height:93px;
-    background-color: rgb(234, 67, 67);
+  position: relative;
+  width: 321px;
+  height: 93px;
+  background-color: rgb(234, 67, 67);
 }
 
 li {
-    display:flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-
 
 :export {
-    battlefield: battlefield;
-    status: status;
-    moveOption: moveOption;
+  battlefield: battlefield;
+  status: status;
+  moveOption: moveOption;
 }
-
