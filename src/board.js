@@ -1,4 +1,4 @@
-import Grass from "assets/images/_0003_GrassTiles";
+import Grass from "../assets/images/_0003_GrassTiles.png";
 import Dirt from "../assets/images/_0001_DirtTiles";
 import Crate from "../assets/images/TDS04_0018_Box1";
 import Rifleman from "../assets/images/Hero_Rifle.png";
