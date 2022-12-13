@@ -23,7 +23,7 @@ h1 {
 
 .background {
   position: relative;
-  background-image: url(/Images/camoBackground.jpg);
+  // background-image: url(../assets/images/camoBackground.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -31,11 +31,20 @@ h1 {
   height: 100%;
 }
 
+#background-image {
+  position: absolute;
+  // top: 1000px;
+  // left: 1000px;
+  z-index: -10;
+}
+
 #container {
   display: inline-block;
-  position: relative;
+  position: absolute;
   margin-left: auto;
   margin-right: auto;
+  // top: 0;
+  // left: 0;
   width: 660px;
 }
 

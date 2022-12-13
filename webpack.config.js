@@ -30,10 +30,21 @@ const config = {
         ],
       },
       {
-        test: /\.(jpg|png)$/,
-        use: {
-          loader: "url-loader",
-        },
+        test: /\.(gif|png|jpe?g)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "assets/images/",
+            },
+          },
+        ],
+      },
+
+      {
+        test: /\.html$/,
+        use: ["html-loader"],
       },
     ],
   },

@@ -28,6 +28,8 @@
     "defaults"
   ],
   "devDependencies": {
+    "file-loader": "^1.1.6",
+    "html-loader": "^0.5.5",
     "url-loader": "^4.1.1"
   }
 }
