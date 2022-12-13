@@ -42,18 +42,18 @@ const config = {
         ],
       },
 
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader",
-            options: {
-              // THIS will resolve relative URLs to reference from the app/ directory
-              root: path.resolve(__dirname, "app"),
-            },
-          },
-        ],
-      },
+      // {
+      //   test: /\.html$/,
+      //   use: [
+      //     {
+      //       loader: "html-loader",
+      //       options: {
+      //         // THIS will resolve relative URLs to reference from the app/ directory
+      //         root: path.resolve(__dirname, "app"),
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
   plugins: [new MiniCssExtractPlugin()],
