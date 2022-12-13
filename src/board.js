@@ -1,6 +1,6 @@
 import Grass from "../assets/images/_0003_GrassTiles.png";
-import Dirt from "../assets/images/_0001_DirtTiles";
-import Crate from "../assets/images/TDS04_0018_Box1";
+import Dirt from "../assets/images/_0001_DirtTiles.png";
+import Crate from "../assets/images/TDS04_0018_Box1.png";
 import Rifleman from "../assets/images/Hero_Rifle.png";
 import Grenade from "../assets/images/Hero_GrenadeLauncher.png";
 import Sniper from "../assets/images/Hero_MachineGun.png";
@@ -25,7 +25,7 @@ class Board {
     for (let i = 0; i < this.unitOrder.length; i++) {
       this.characterKey[this.unitOrder[i].name] = this.unitOrder[i];
     }
-    console.log(this.characterKey);
+    // console.log(this.characterKey);
     this.currentTurn = 0;
     this.unitTurn = this.unitOrder[this.currentTurn % this.unitOrder.length];
     this.unitGrid = new Array(10);
@@ -58,7 +58,7 @@ class Board {
   attack(target) {
     let attackedUnit = this.characterKey[target];
     if (this.inRange(attackedUnit)) {
-      console.log("before damge");
+      // console.log("before damge");
       attackedUnit.takeDamage(this.unitTurn.attack);
       if (!attackedUnit.isAlive()) {
         this.removeUnit(attackedUnit);
@@ -68,8 +68,8 @@ class Board {
 
   inRange(target) {
     let range = this.unitTurn.range;
-    console.log(target);
-    console.log(this.unitTurn);
+    // console.log(target);
+    // console.log(this.unitTurn);
     let xDif = target.pos[0] - this.unitTurn.pos[0];
     let yDif = target.pos[1] - this.unitTurn.pos[1];
     while (xDif !== 0) {
@@ -98,7 +98,7 @@ class Board {
   }
 
   findClickedUnit(name) {
-    console.log(name);
+    // console.log(name);
     for (let i = 0; i < this.unitOrder.length; i++) {
       if (this.unitOrder[i].name === name) {
         let alliance;
@@ -155,7 +155,7 @@ class Board {
 
   fillTiles() {
     let grass = new Image();
-    // grass.src = "../tiles/Tiles/_0003_GrassTiles.png";
+    // grass.src = "../assets/images/_0003_GrassTiles.png";
     grass.src = Grass;
     this.tiles.push(grass);
 
