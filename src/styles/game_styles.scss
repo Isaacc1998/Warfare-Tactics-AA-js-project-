@@ -22,6 +22,7 @@ h1 {
 }
 
 .background {
+  position: relative;
   background-image: url(/images/camoBackground.jpg);
   background-size: cover;
   background-attachment: fixed;
@@ -144,6 +145,13 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#test-canvas {
+  position: absolute;
+  color: blue;
+  bottom: 200px;
+  z-index: 101;
 }
 
 :export {

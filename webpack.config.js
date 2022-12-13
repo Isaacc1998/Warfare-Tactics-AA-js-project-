@@ -17,6 +17,7 @@ const config = {
         use: ["babel-loader"], // transpiles your js
         exclude: /node_modules/, // don't transpile node modules
       },
+
       {
         test: /\.s?[ac]ss$/, // applies to css/scss/sass files
         use: [
