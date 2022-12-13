@@ -5,13 +5,6 @@ const Player = require("./player");
 const levels = require("./levels");
 // const Tile =
 //let clickedUnit = {hp: 0, atk: 0, def: 0, type: "", name: "", alliance: ""}
-var canvas = document.getElementById("test-canvas");
-var ctx = canvas.getContext("2d");
-// canvas.width = window.innerWidth;
-// canvas.height = window.innerHeight;
-ctx.beginPath();
-ctx.rect(5, 5, 290, 140);
-ctx.stroke();
 document.addEventListener("DOMContentLoaded", (e) => {
   let newGame = new Game(1);
   // let controller = new AbortController();
