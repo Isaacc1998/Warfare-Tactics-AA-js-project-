@@ -1,6 +1,9 @@
-import Grass from "../tiles/Tiles/_0003_GrassTiles.png";
-import Dirt from "../tiles/Tiles/_0001_DirtTiles.png";
-import Crate from "../tiles/crates/TDS04_0018_Box1.png";
+import Grass from "assets/images/_0003_GrassTiles";
+import Dirt from "../assets/images/_0001_DirtTiles";
+import Crate from "../assets/images/TDS04_0018_Box1";
+import Rifleman from "../assets/images/Hero_Rifle.png";
+import Grenade from "../assets/images/Hero_GrenadeLauncher.png";
+import Sniper from "../assets/images/Hero_MachineGun.png";
 const Player = require("./player");
 const Unit = require("./unit");
 const Levels = require("./levels");
@@ -138,15 +141,15 @@ class Board {
 
   generateUnitImages() {
     let rifleman = new Image();
-    rifleman.src = "../soldiers/Hero_Rifle.png";
+    rifleman.src = Rifleman;
     this.unitImages.push(rifleman);
 
     let sniper = new Image();
-    sniper.src = "../soldiers/Hero_MachineGun.png";
+    sniper.src = Sniper;
     this.unitImages.push(sniper);
 
     let launcher = new Image();
-    launcher.src = "../soldiers/Hero_GrenadeLauncher.png";
+    launcher.src = Grenade;
     this.unitImages.push(launcher);
   }
 

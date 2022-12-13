@@ -29,18 +29,6 @@ const config = {
           "sass-loader", // compiles sass to css
         ],
       },
-      {
-        test: /\.(gif|png|jpe?g)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              outputPath: "assets/images/",
-            },
-          },
-        ],
-      },
 
       // {
       //   test: /\.html$/,
