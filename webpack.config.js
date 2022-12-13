@@ -44,7 +44,15 @@ const config = {
 
       {
         test: /\.html$/,
-        use: ["html-loader"],
+        use: [
+          {
+            loader: "html-loader",
+            options: {
+              // THIS will resolve relative URLs to reference from the app/ directory
+              root: path.resolve(__dirname, "app"),
+            },
+          },
+        ],
       },
     ],
   },
